@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:home="clr-namespace:Animals.com.animals.home"
+             x:Class="Animals.com.animals.home.HomePage"
+             NavigationPage.HasNavigationBar="False"
+             x:DataType="home:HomeViewModel">
+    <ContentPage.Content>
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Spacing="20">
+                <Button Text="Login" Clicked="Login_Clicked"/>
+                <Button Text="About" Command="{Binding AboutCommand}"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:login="clr-namespace:Animals.com.animals.login"
+             x:Class="Animals.com.animals.login.LoginPage"
+             x:DataType="login:LoginViewModel"
+             Title="Login">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="30">
+            
+            <Entry Placeholder="User"
+                   x:Name="User"
+                   Keyboard="Text"
+                   ReturnType="Next"
+                   Text="{Binding Username, Mode=OneWayToSource}">
+            </Entry>
+            <Entry Placeholder="Password"
+                   x:Name="Pass"
+                   Text="{Binding Password, Mode=OneWayToSource}"
+                   IsPassword="True"
+                   ReturnType="Done"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False" />
+            <Label Text="Wrong username and/or password"
+                   TextColor="DarkRed"
+                   FontSize="Micro"
+                   HorizontalTextAlignment="Center"
+                   IsVisible="{Binding IsLoginEnabled, Converter={StaticResource InvertBooleanConverter}}" />
+            <Button Text="Login"
+                    Clicked="Login_Clicked"
+                    IsEnabled="{Binding IsLoginEnabled}"/>
+            <BoxView HeightRequest="100" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

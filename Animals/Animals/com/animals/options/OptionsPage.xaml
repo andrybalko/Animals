@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:options="clr-namespace:Animals.com.animals.options"
+             x:Class="Animals.com.animals.options.OptionsPage"
+             x:DataType="options:OptionsViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Animals}"
+                      SeparatorVisibility="Default"
+                      SeparatorColor="LightGray"
+                      SelectedItem="{Binding SelectedAnimal, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding .}"
+                                   Padding="10"
+                                   HeightRequest="50"
+                                   VerticalTextAlignment="Center" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Submit"
+                    IsEnabled="{Binding SelectedAnimal, Converter={StaticResource NullToVisibilityConverter}}"
+                    Margin="10,0,10,20"
+                    Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
